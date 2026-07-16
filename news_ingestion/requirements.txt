@@ -1,0 +1,6 @@
+feedparser
+requests
+pyyaml
+python-dateutil
+python-dotenv
+trafilatura
