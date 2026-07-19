@@ -1,0 +1,12 @@
+chunking:
+  target_tokens: 600
+  overlap_percent: 0.10
+  minimum_chunk_tokens: 450
+  include_title: true
+  preserve_paragraphs: true
+
+archive:
+  enabled: true
+
+output:
+  write_chunk_jsonl: true
