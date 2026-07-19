@@ -40,9 +40,8 @@ flowchart TD
 
 ## Roadmap
 
-- [x] Prototype for one source (Tagesschau)
+- [ ] Prototype for one source (Tagesschau)
 - [ ] Support for additional news sources
-- [ ] Configurable target language for translation
 - [ ] Automated scheduling / cron jobs for full pipeline runs
 - [ ] Context enrichment (e.g. related articles, historical background)
 - [ ] Web UI for the LLM wiki
