@@ -52,10 +52,10 @@ flowchart TD
 
 | Area | Technology |
 |---|---|
-| Scraping / Fetching | e.g. Python + `feedparser` / `requests` |
-| Translation | e.g. DeepL API / OpenAI / local model |
-| Vector database | e.g. Qdrant / Weaviate / Chroma |
-| Summarization | e.g. LLM API |
+| Scraping / Fetching | Python + `feedparser` / `requests` |
+| Translation | local model |
+| Vector database | Milvus |
+| Summarization | local model |
 | Wiki / Frontend | TBD |
 
 ## Installation
