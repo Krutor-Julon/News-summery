@@ -1,10 +1,18 @@
+import sys
 import os
+
+# Make the parent folder importable so `shared`, `translation`,
+# and `summarization` can be found when we run from inside news_ingestion.
+_PARENT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _PARENT not in sys.path:
+    sys.path.insert(0, _PARENT)
 
 from build_website import build_website
 from pipeline.ingest_news import ingest_news
-from pipeline.translate_news import translate_news
-from pipeline.summarize_news import summarize_news
-from utils.io import load_jsonl, save_jsonl
+from translation.translate_news import translate_news        # was pipeline.translate_news
+from summarization.summarize_news import summarize_news       # was pipeline.summarize_news
+from shared.io import load_jsonl, save_jsonl                  # was utils.io
+
 
 DATABASE = "output/database.jsonl"
 

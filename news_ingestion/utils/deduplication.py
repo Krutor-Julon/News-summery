@@ -1,4 +1,5 @@
-from models.news_article import NewsArticle
+#from models.news_article import NewsArticle          # old
+from shared.models.news_article import NewsArticle    # new
 
 
 def remove_duplicates(

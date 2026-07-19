@@ -19,16 +19,28 @@ class OpusTranslator:
     def translate(self, text: str) -> str:
         if not text:
             return ""
-        translated = []
+        # Split on runs of newlines but KEEP them, so paragraph breaks survive.
+        parts = re.split(r"(\n+)", text)
+        out = []
+        for part in parts:
+            if not part:
+                continue
+            if part.strip() == "":       # a newline separator -> keep verbatim
+                out.append(part)
+            else:
+                out.append(self._translate_block(part))
+        return "".join(out)
+
+    def _translate_block(self, text: str) -> str:
         sentences = self._split_sentences(text)
-        for i in range(0, len(sentences), 8):  # small batches keep memory low
+        if not sentences:
+            return ""
+        translated = []
+        for i in range(0, len(sentences), 8):
             batch = sentences[i:i + 8]
             encoded = self.tokenizer(
-                batch,
-                return_tensors="pt",
-                padding=True,
-                truncation=True,
-                max_length=512,
+                batch, return_tensors="pt", padding=True,
+                truncation=True, max_length=512,
             )
             generated = self.model.generate(**encoded, max_length=512)
             translated.extend(

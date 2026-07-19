@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from models.news_article import NewsArticle
+#from models.news_article import NewsArticle          # old
+from shared.models.news_article import NewsArticle    # new
 
 
 class NewsConnector(ABC):

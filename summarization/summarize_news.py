@@ -1,5 +1,8 @@
-from utils.io import load_jsonl, save_jsonl
-from summarizers.ollama_summarizer import OllamaSummarizer
+#from utils.io import load_jsonl, save_jsonl                    # OLD
+#from summarizers.ollama_summarizer import OllamaSummarizer     # OLD
+# ->
+from shared.io import load_jsonl, save_jsonl                   # NEW
+from summarization.ollama_summarizer import OllamaSummarizer   # NEW
 
 
 def summarize_news(

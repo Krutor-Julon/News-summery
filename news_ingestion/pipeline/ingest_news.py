@@ -3,7 +3,8 @@ import yaml
 from connectors.factory import ConnectorFactory
 
 from utils.deduplication import remove_duplicates
-from utils.io import save_jsonl
+#from utils.io import load_jsonl, save_jsonl          # old
+from shared.io import load_jsonl, save_jsonl          # new
 
 from extractors.trafilatura_extractor import TrafilaturaExtractor
 

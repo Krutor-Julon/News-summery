@@ -2,7 +2,8 @@ import json
 
 from dateutil import parser as date_parser
 
-from models.news_article import NewsArticle
+#from models.news_article import NewsArticle          # OLD
+from shared.models.news_article import NewsArticle    # NEW
 
 
 def save_jsonl(articles: list[NewsArticle], filename: str):

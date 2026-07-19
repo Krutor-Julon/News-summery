@@ -1,5 +1,8 @@
-from utils.io import load_jsonl, save_jsonl
-from translators.opus_translator import OpusTranslator
+#from utils.io import load_jsonl, save_jsonl                 # OLD
+#from translators.opus_translator import OpusTranslator      # OLD
+
+from shared.io import load_jsonl, save_jsonl                # NEW
+from translation.opus_translator import OpusTranslator      # NEW
 
 
 def translate_news(
@@ -28,6 +31,16 @@ def translate_news(
             article.translated_title = translator.translate(article.title)
             article.translated_content = translator.translate(source_text)
 
+
+    # Keep only the translated article + downstream metadata;
+    # drop the original-language body so it isn't packed in the same record.
+    for article in articles:
+        article.content = None
+        article.description = None
+        article.raw = {}
+        #article.title = None           #If you want to blank the german title
+
+    
     save_jsonl(articles, output_path)
     print(f"Done. Saved {len(articles)} translated articles to {output_path}")
     return articles
