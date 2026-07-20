@@ -4,7 +4,8 @@ import requests
 from dateutil import parser as date_parser
 
 from connectors.base import NewsConnector
-from models.news_article import NewsArticle
+#from models.news_article import NewsArticle          # old
+from shared.models.news_article import NewsArticle    # new
 
 
 
