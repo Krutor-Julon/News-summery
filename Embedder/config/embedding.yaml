@@ -1,0 +1,25 @@
+# Configuration for the embedding + vector-store step.
+
+model:
+  # multilingual-e5-base: understands German + English in the same space.
+  name: "intfloat/multilingual-e5-base"
+  dimension: 768              # e5-base outputs 768 numbers per text
+  # e5 REQUIRES these prefixes to work well. Documents use "passage: ",
+  # search queries use "query: ". Do not remove them.
+  passage_prefix: "passage: "
+  query_prefix: "query: "
+  batch_size: 16              # lower this if your PC runs out of memory
+  normalize: true            # needed for cosine similarity
+
+vector_store:
+  # Milvus Lite stores everything in this single local file. No server, no Docker.
+  db_path: "Embedder/data/milvus_news.db"
+  collection: "news_chunks"
+  index_type: "FLAT"          # exact search, perfect for small local datasets.
+                              # Switch to "HNSW" only once you have many thousands of chunks.
+  metric_type: "COSINE"
+
+input:
+  # Leave empty to automatically use the NEWEST .jsonl in Chunker/chunks.
+  # Or set a specific path relative to the project root.
+  chunks_file: ""

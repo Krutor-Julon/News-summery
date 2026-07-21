@@ -7,3 +7,7 @@ Thumbs.db
 __pycache__/
 *.pyc
 *.bak
+.venv/
+Embedder/data/
+__pycache__/
+*.pyc

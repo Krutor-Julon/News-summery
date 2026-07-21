@@ -1,0 +1,9 @@
+# The Milvus client + the local pure-Python backend.
+# milvus-lite >= 3.0.0 is the version that runs on Windows.
+pymilvus>=2.5.0
+milvus-lite>=3.0.0
+
+# Embedding model runtime (pulls in torch + transformers automatically).
+sentence-transformers>=2.7.0
+
+pyyaml
